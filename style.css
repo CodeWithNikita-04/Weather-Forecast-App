@@ -1,0 +1,414 @@
+/* Weather App CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a0e1a;
+  --card: rgba(255, 255, 255, 0.06);
+  --card2: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.12);
+  --blue: #3d9bff;
+  --blue-light: rgba(61, 155, 255, 0.18);
+  --text: #e8edf5;
+  --light-text: rgba(232, 237, 245, 0.6);
+  --dim-text: rgba(232, 237, 245, 0.35);
+  --error: #ff6b6b;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+  overflow-x: hidden;
+}
+
+/* background circles */
+.bg-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.8;
+}
+
+.orb-1 {
+  width: 420px;
+  height: 420px;
+  background: rgba(61, 155, 255, 0.18);
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 330px;
+  height: 330px;
+  background: rgba(120, 80, 255, 0.14);
+  bottom: 50px;
+  right: -80px;
+}
+
+.orb-3 {
+  width: 280px;
+  height: 280px;
+  background: rgba(0, 200, 180, 0.1);
+  top: 40%;
+  left: 45%;
+}
+
+/* main box */
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.logo-icon {
+  font-size: 25px;
+  color: var(--blue);
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--light-text);
+}
+
+/* search */
+.search-section {
+  margin-bottom: 25px;
+}
+
+.search-wrapper {
+  display: flex;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.search-wrapper:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 18px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: var(--dim-text);
+}
+
+.search-btn {
+  border: none;
+  background: var(--blue);
+  color: white;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-btn:hover {
+  background: #5aabff;
+}
+
+.error-msg {
+  margin-top: 8px;
+  color: var(--error);
+  font-size: 13px;
+}
+
+/* weather card */
+.weather-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 28px;
+  backdrop-filter: blur(18px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.city-name {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.country {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.datetime {
+  font-size: 13px;
+  color: var(--light-text);
+}
+
+.weather-icon-wrap {
+  text-align: center;
+}
+
+.weather-icon {
+  width: 75px;
+  height: 75px;
+}
+
+.weather-desc {
+  font-size: 13px;
+  color: var(--light-text);
+  text-transform: capitalize;
+}
+
+/* temperature */
+.temp-display {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.temp-value {
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.temp-unit-toggle {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.unit-btn {
+  background: transparent;
+  border: none;
+  color: var(--dim-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.unit-btn.active {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+.unit-divider {
+  color: var(--dim-text);
+}
+
+/* details */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-card:hover {
+  border-color: rgba(61, 155, 255, 0.35);
+}
+
+.stat-icon {
+  color: var(--blue);
+  font-size: 20px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--light-text);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* pressure */
+.pressure-bar-wrap {
+  margin-top: 5px;
+}
+
+.pressure-label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.pressure-track {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pressure-fill {
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, #3d9bff, #7b5fff);
+  border-radius: 20px;
+}
+
+.pressure-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--dim-text);
+  margin-top: 6px;
+}
+
+/* loading and default screen */
+.default-state,
+.loading-state {
+  text-align: center;
+  color: var(--dim-text);
+  padding: 45px 0;
+  font-size: 14px;
+}
+
+.default-icon {
+  font-size: 55px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* footer */
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--dim-text);
+}
+
+.footer a {
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--blue);
+}
+
+/* hide elements */
+[hidden] {
+  display: none !important;
+}
+
+/* mobile */
+@media (max-width: 420px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .weather-card {
+    padding: 22px;
+  }
+
+  .card-top {
+    gap: 15px;
+  }
+
+  .city-name {
+    font-size: 25px;
+  }
+
+  .temp-value {
+    font-size: 55px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    padding: 12px 10px;
+  }
+}
