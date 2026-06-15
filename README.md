@@ -21,6 +21,7 @@ The application provides essential weather metrics such as temperature, humidity
 * ⏳ Loading state while fetching weather data
 * ❌ Error handling for invalid or unavailable cities
 * 📱 Responsive design for different screen sizes
+<img width="970" height="846" alt="image" src="https://github.com/user-attachments/assets/05f5bda6-8284-4001-95c1-6dce9e8a8f56" />
 
 ---
 
@@ -122,7 +123,9 @@ Contributions, suggestions, and improvements are welcome.
 
 ## 👨‍💻 Author 
 Nikita Chaudhary
-<img width="970" height="846" alt="image" src="https://github.com/user-attachments/assets/ad646af2-25fc-4628-978d-2c3f3ac654c4" />
+<img width="1885" height="846" alt="image" src="https://github.com/user-attachments/assets/8a991fbe-3c7c-48e3-856f-97daa831081a" />
+
+
 
 
 
