@@ -122,6 +122,9 @@ Contributions, suggestions, and improvements are welcome.
 
 ## 👨‍💻 Author 
 Nikita Chaudhary
+<img width="970" height="846" alt="image" src="https://github.com/user-attachments/assets/ad646af2-25fc-4628-978d-2c3f3ac654c4" />
+
+
 
 
 If you found this project useful, consider giving it a ⭐ on GitHub!
