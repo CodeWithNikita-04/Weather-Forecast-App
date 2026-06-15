@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Weather App</title>
+  <title>WeatherNow - Weather App</title>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -27,7 +27,7 @@
         <span class="logo-text">WeatherNow</span>
       </div>
 
-      <p class="tagline">Check the current weather of any city</p>
+      <p class="tagline">Check real time weather of any city</p>
     </header>
 
     <section class="search-section">
@@ -38,6 +38,7 @@
           class="search-input"
           placeholder="Enter city name..."
           autocomplete="off"
+          spellcheck="false"
         />
 
         <button id="searchBtn" class="search-btn" aria-label="Search">
@@ -46,7 +47,7 @@
       </div>
 
       <div id="errorMsg" class="error-msg" hidden>
-        <span id="errorText">City not found. Please try again.</span>
+        <span id="errorText">City not found. Try again.</span>
       </div>
     </section>
 
@@ -54,53 +55,118 @@
 
       <div class="card-top">
         <div class="location-info">
-          <h1 id="cityName" class="city-name">City Name</h1>
-          <p id="countryCode" class="country">Country</p>
-          <p id="dateTime" class="datetime">Date and Time</p>
+          <h1 id="cityName" class="city-name">--</h1>
+          <p id="countryCode" class="country">--</p>
+          <p id="dateTime" class="datetime">--</p>
         </div>
 
         <div class="weather-icon-wrap">
           <img id="weatherIcon" src="" alt="weather icon" class="weather-icon" />
-          <p id="weatherDesc" class="weather-desc">Weather Description</p>
+          <p id="weatherDesc" class="weather-desc">--</p>
         </div>
       </div>
 
-      <div class="temperature-section">
-        <h2 id="temperature" class="temperature">--°C</h2>
-        <p id="feelsLike" class="feels-like">Feels like --°C</p>
+      <div class="temp-display">
+        <span id="temperature" class="temp-value">--</span>
+
+        <div class="temp-unit-toggle">
+          <button class="unit-btn active" id="celsiusBtn">°C</button>
+          <span class="unit-divider">|</span>
+          <button class="unit-btn" id="fahrenheitBtn">°F</button>
+        </div>
       </div>
 
-      <div class="weather-details">
+      <div class="stats-grid">
 
-        <div class="detail-box">
-          <p class="detail-title">Humidity</p>
-          <h3 id="humidity">--%</h3>
+        <div class="stat-card">
+          <div class="stat-icon">🌡</div>
+          <div class="stat-info">
+            <span class="stat-label">Feels Like</span>
+            <span id="feelsLike" class="stat-value">--</span>
+          </div>
         </div>
 
-        <div class="detail-box">
-          <p class="detail-title">Wind Speed</p>
-          <h3 id="windSpeed">-- km/h</h3>
+        <div class="stat-card">
+          <div class="stat-icon">💧</div>
+          <div class="stat-info">
+            <span class="stat-label">Humidity</span>
+            <span id="humidity" class="stat-value">--</span>
+          </div>
         </div>
 
-        <div class="detail-box">
-          <p class="detail-title">Pressure</p>
-          <h3 id="pressure">-- hPa</h3>
+        <div class="stat-card">
+          <div class="stat-icon">💨</div>
+          <div class="stat-info">
+            <span class="stat-label">Wind Speed</span>
+            <span id="windSpeed" class="stat-value">--</span>
+          </div>
         </div>
 
-        <div class="detail-box">
-          <p class="detail-title">Visibility</p>
-          <h3 id="visibility">-- km</h3>
+        <div class="stat-card">
+          <div class="stat-icon">☁</div>
+          <div class="stat-info">
+            <span class="stat-label">Visibility</span>
+            <span id="visibility" class="stat-value">--</span>
+          </div>
         </div>
 
+        <div class="stat-card">
+          <div class="stat-icon">🌅</div>
+          <div class="stat-info">
+            <span class="stat-label">Sunrise</span>
+            <span id="sunrise" class="stat-value">--</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🌇</div>
+          <div class="stat-info">
+            <span class="stat-label">Sunset</span>
+            <span id="sunset" class="stat-value">--</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pressure-bar-wrap">
+        <div class="pressure-label-row">
+          <span class="stat-label">Pressure</span>
+          <span id="pressureVal" class="stat-value">--</span>
+        </div>
+
+        <div class="pressure-track">
+          <div id="pressureBar" class="pressure-fill"></div>
+        </div>
+
+        <div class="pressure-scale">
+          <span>950 hPa</span>
+          <span>Normal</span>
+          <span>1050 hPa</span>
+        </div>
       </div>
 
     </section>
 
-    <footer class="footer">
-      <p>Made for weather project</p>
-    </footer>
+    <div id="loadingState" class="loading-state" hidden>
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </div>
+
+    <div class="default-state" id="defaultState">
+      <div class="default-icon">☁</div>
+      <p>Search any city to see live weather</p>
+    </div>
 
   </main>
+
+  <footer class="footer">
+    <p>
+      Data by
+      <a href="https://openweathermap.org" target="_blank" rel="noopener">
+        OpenWeatherMap
+      </a>
+    </p>
+  </footer>
 
   <script src="script.js"></script>
 
