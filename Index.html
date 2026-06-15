@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Weather App</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="container">
+
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">☁</span>
+        <span class="logo-text">WeatherNow</span>
+      </div>
+
+      <p class="tagline">Check the current weather of any city</p>
+    </header>
+
+    <section class="search-section">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="cityInput"
+          class="search-input"
+          placeholder="Enter city name..."
+          autocomplete="off"
+        />
+
+        <button id="searchBtn" class="search-btn" aria-label="Search">
+          Search
+        </button>
+      </div>
+
+      <div id="errorMsg" class="error-msg" hidden>
+        <span id="errorText">City not found. Please try again.</span>
+      </div>
+    </section>
+
+    <section id="weatherCard" class="weather-card" hidden>
+
+      <div class="card-top">
+        <div class="location-info">
+          <h1 id="cityName" class="city-name">City Name</h1>
+          <p id="countryCode" class="country">Country</p>
+          <p id="dateTime" class="datetime">Date and Time</p>
+        </div>
+
+        <div class="weather-icon-wrap">
+          <img id="weatherIcon" src="" alt="weather icon" class="weather-icon" />
+          <p id="weatherDesc" class="weather-desc">Weather Description</p>
+        </div>
+      </div>
+
+      <div class="temperature-section">
+        <h2 id="temperature" class="temperature">--°C</h2>
+        <p id="feelsLike" class="feels-like">Feels like --°C</p>
+      </div>
+
+      <div class="weather-details">
+
+        <div class="detail-box">
+          <p class="detail-title">Humidity</p>
+          <h3 id="humidity">--%</h3>
+        </div>
+
+        <div class="detail-box">
+          <p class="detail-title">Wind Speed</p>
+          <h3 id="windSpeed">-- km/h</h3>
+        </div>
+
+        <div class="detail-box">
+          <p class="detail-title">Pressure</p>
+          <h3 id="pressure">-- hPa</h3>
+        </div>
+
+        <div class="detail-box">
+          <p class="detail-title">Visibility</p>
+          <h3 id="visibility">-- km</h3>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <p>Made for weather project</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
